@@ -3,9 +3,9 @@ const cors = require('cors');
 const helmet = require('helmet');
 const morgan = require('morgan');
 const rateLimit = require('express-rate-limit');
-const connectDB = require('./config/database');
 const { errorHandler, notFound } = require('./middleware/errorHandler');
 require('dotenv').config();
+const connectDB = require('./config/database');
 
 const app = express();
 const PORT = process.env.PORT || 5001;
@@ -85,8 +85,6 @@ app.use('/api/analytics', require('./routes/analytics'));
 // Error handling middleware
 app.use(notFound);
 app.use(errorHandler);
-
-connectDB();
   
 
 // For local development, start the server

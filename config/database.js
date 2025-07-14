@@ -3,13 +3,7 @@ const mongoose = require('mongoose');
 const connectDB = async () => {
   try {
     // Remove deprecated options
-    const conn = await mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/portfolio_db', {
-      // Removed useNewUrlParser and useUnifiedTopology as they're deprecated
-      maxPoolSize: 10,
-      serverSelectionTimeoutMS: 5000,
-      socketTimeoutMS: 45000,
-      bufferCommands: false,
-    });
+    const conn = await mongoose.connect(process.env.MONGODB_URI);
 
     console.log(`📦 MongoDB Connected: ${conn.connection.host}`);
     
@@ -33,5 +27,7 @@ const connectDB = async () => {
     throw error;
   }
 };
+
+connectDB();
 
 module.exports = connectDB; 
