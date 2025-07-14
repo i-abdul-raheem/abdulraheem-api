@@ -45,14 +45,7 @@ app.use('/api/', limiter);
 
 // CORS configuration
 app.use(cors({
-  origin: [
-    'http://localhost:3000',
-    'http://localhost:3001',
-    'http://localhost:3002',
-    'https://abdulraheem.vercel.app',
-    'https://abdulraheem-dashboard.vercel.app',
-    'https://abdulraheem-zeta.vercel.app' // <-- Added production frontend
-  ],
+  origin: '*',
   credentials: true,
 }));
 
