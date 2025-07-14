@@ -71,16 +71,16 @@ app.get('/api/health', (req, res) => {
 });
 
 // API Routes - direct mounting
-app.use('/api/auth', require('./routes/auth'));
-app.use('/api/projects', require('./routes/projects'));
-app.use('/api/skills', require('./routes/skills'));
-app.use('/api/contact', require('./routes/contact'));
-app.use('/api/about', require('./routes/about'));
-app.use('/api/footer', require('./routes/footer'));
-app.use('/api/dashboard', require('./routes/dashboard'));
-app.use('/api/images', require('./routes/images'));
-app.use('/api/resume', require('./routes/resume'));
-app.use('/api/analytics', require('./routes/analytics'));
+app.use('/api/api/auth', require('./routes/auth'));
+app.use('/api/api/projects', require('./routes/projects'));
+app.use('/api/api/skills', require('./routes/skills'));
+app.use('/api/api/contact', require('./routes/contact'));
+app.use('/api/api/about', require('./routes/about'));
+app.use('/api/api/footer', require('./routes/footer'));
+app.use('/api/api/dashboard', require('./routes/dashboard'));
+app.use('/api/api/images', require('./routes/images'));
+app.use('/api/api/resume', require('./routes/resume'));
+app.use('/api/api/analytics', require('./routes/analytics'));
 
 // Error handling middleware
 app.use(notFound);
