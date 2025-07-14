@@ -49,8 +49,8 @@ app.use(cors({
     'http://localhost:3000',
     'http://localhost:3001',
     'http://localhost:3002',
-    'https://your-frontend-domain.vercel.app',
-    'https://your-dashboard-domain.vercel.app'
+    'https://abdulraheem.vercel.app',
+    'https://abdulraheem-dashboard.vercel.app'
   ],
   credentials: true,
 }));
