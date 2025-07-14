@@ -70,33 +70,17 @@ app.get('/api/health', (req, res) => {
   });
 });
 
-// API Routes with error handling
-const loadRoutes = () => {
-  const routes = [
-    { path: '/api/auth', module: './routes/auth' },
-    { path: '/api/projects', module: './routes/projects' },
-    { path: '/api/skills', module: './routes/skills' },
-    { path: '/api/contact', module: './routes/contact' },
-    { path: '/api/about', module: './routes/about' },
-    { path: '/api/footer', module: './routes/footer' },
-    { path: '/api/dashboard', module: './routes/dashboard' },
-    { path: '/api/images', module: './routes/images' },
-    { path: '/api/resume', module: './routes/resume' },
-    { path: '/api/analytics', module: './routes/analytics' }
-  ];
-
-  routes.forEach(route => {
-    try {
-      app.use(route.path, require(route.module));
-      console.log(`✅ Route loaded: ${route.path}`);
-    } catch (error) {
-      console.error(`❌ Error loading route ${route.path}:`, error.message);
-      // Continue without the failing route
-    }
-  });
-};
-
-loadRoutes();
+// API Routes - direct mounting
+app.use('/api/auth', require('./routes/auth'));
+app.use('/api/projects', require('./routes/projects'));
+app.use('/api/skills', require('./routes/skills'));
+app.use('/api/contact', require('./routes/contact'));
+app.use('/api/about', require('./routes/about'));
+app.use('/api/footer', require('./routes/footer'));
+app.use('/api/dashboard', require('./routes/dashboard'));
+app.use('/api/images', require('./routes/images'));
+app.use('/api/resume', require('./routes/resume'));
+app.use('/api/analytics', require('./routes/analytics'));
 
 // Error handling middleware
 app.use(notFound);
