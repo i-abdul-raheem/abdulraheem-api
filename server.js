@@ -60,8 +60,8 @@ if (process.env.NODE_ENV === 'development') {
 
 // Health check endpoint
 app.get('/api/health', (req, res) => {
-  res.json({ 
-    status: 'OK', 
+  res.json({
+    status: 'OK',
     message: 'Portfolio API is running',
     timestamp: new Date().toISOString(),
     uptime: process.uptime(),
@@ -125,4 +125,4 @@ if (process.env.NODE_ENV !== 'production' || process.env.VERCEL !== '1') {
   });
 }
 
-module.exports = app; 
+module.exports = { app }; 
