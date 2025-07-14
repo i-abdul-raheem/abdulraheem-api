@@ -86,19 +86,8 @@ app.use('/api/analytics', require('./routes/analytics'));
 app.use(notFound);
 app.use(errorHandler);
 
-// Connect to MongoDB (for serverless compatibility)
-const connectToDatabase = async () => {
-  try {
-    await connectDB();
-    console.log('📦 MongoDB Connected successfully');
-  } catch (error) {
-    console.error('❌ MongoDB connection error:', error.message);
-    // Don't throw error, let the app continue without database
-  }
-};
-
-// Initialize database connection
-connectToDatabase();
+connectDB();
+  
 
 // For local development, start the server
 if (process.env.NODE_ENV !== 'production' || process.env.VERCEL !== '1') {
