@@ -64,7 +64,8 @@ router.get('/:id', async (req, res) => {
       'Content-Type': image.mimetype,
       'Content-Length': image.size,
       'Cache-Control': 'public, max-age=31536000', // Cache for 1 year
-      'ETag': `"${image._id}"`
+      'ETag': `"${image._id}"`,
+      'Cross-Origin-Resource-Policy': 'cross-origin' // Allow cross-origin usage
     });
 
     res.send(image.data);
